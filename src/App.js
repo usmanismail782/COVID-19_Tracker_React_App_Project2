@@ -23,7 +23,7 @@ function App() {
 
     setCountryData(await fetchSelectedCountryData(country))
     setCountryName(country);
-    console.log(country)
+   
 
   }
 
