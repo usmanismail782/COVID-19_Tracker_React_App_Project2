@@ -11,7 +11,7 @@ const Charts = ({ data: { confirmed, recovered, deaths }, country , handleCountr
 
   const { dailyData } = useContext(DataContext)
 
-  if(country == '' )
+  if(country === '' )
   handleCountryChange();
 
 
