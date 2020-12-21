@@ -1,16 +1,16 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Card, CardContent, Typography, Grid } from '@material-ui/core'
 import CountUp from 'react-countup';
-import { DataContext } from '../api/DataContext'
 import styles from '../cards/Cards.module.css'
 import cx from 'classnames';
-const Cards = () => {
+const Cards = ({ data, country }) => {
 
-    const { data } = useContext(DataContext)
+
 
 
 
     if (!data.confirmed) {
+
         return "Loading"
     }
 
@@ -21,7 +21,7 @@ const Cards = () => {
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>Infected</Typography>
                         <Typography variant='h5'>
-                            <CountUp start={0} end={data.confirmed} duration={3} separator="," />
+                            <CountUp start={0} end={data.confirmed} duration={2.5} separator="," />
                         </Typography>
                         <Typography color="textSecondary">{new Date(data.lastUpdate).toDateString()}</Typography>
                         <Typography variant='body'>Active Cases of COVID-19</Typography>

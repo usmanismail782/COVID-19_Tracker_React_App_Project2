@@ -4,19 +4,20 @@
 
 .card {
     margin: 0 2% !important;
+    
 }
 
 .infected{
 
-    border-bottom: 10px solid rgb(0, 0, 255, 0.5);
+    border-bottom: 10px solid rgba(32, 32, 255, 0.6);
 }
 
 .recovered{
     
-    border-bottom: 10px solid rgba(6, 241, 6, 0.5);
+    border-bottom: 10px solid rgba(26, 240, 7, 0.6);
 }
 
 .deaths{
     
-    border-bottom: 10px solid rgba(218, 34, 10, 0.897);
+    border-bottom: 10px solid rgba(218, 34, 10, 0.6);
 }

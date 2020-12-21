@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { fetchGlobalData } from './index'
 import { fetchDailyData } from './DailyData'
+import { fetchCountries } from '../api/fetchCountries'
 
 export const DataContext = createContext([]);
 
@@ -8,8 +8,10 @@ export const DataContext = createContext([]);
 
 export const DataProvider = ({ children }) => {
 
-  const [data, setData] = useState({});
-  const [dailyData] = useState([]);
+  const [dailyData, setDailyData] = useState({});
+  const [countries, setCountries] = useState([])
+
+
 
   useEffect(() => {
 
@@ -17,22 +19,9 @@ export const DataProvider = ({ children }) => {
 
 
 
-      const fetchedData = await fetchGlobalData();
-      const initialDailyData = await fetchDailyData();
-
-      console.log(initialDailyData)
-
-      setData(
-        {
-          confirmed: fetchedData.confirmed.value,
-          recovered: fetchedData.recovered.value,
-          deaths: fetchedData.deaths.value,
-          lastUpdate: new Date(fetchedData.lastUpdate).toDateString()
-        }
-
-
-      )
-
+      const initialDailyData = await fetchDailyData()
+      setCountries(await fetchCountries())
+      setDailyData(initialDailyData)
     }
 
     fetchData()
@@ -41,13 +30,10 @@ export const DataProvider = ({ children }) => {
 
 
 
-
-
-
-
   return (<DataContext.Provider value={{
-    data,
-    dailyData
+
+    dailyData,
+    countries: countries
 
   }}>
     {children}
