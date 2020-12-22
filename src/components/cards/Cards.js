@@ -24,7 +24,7 @@ const Cards = ({ data }) => {
                             <CountUp start={0} end={data.confirmed} duration={2.5} separator="," />
                         </Typography>
                         <Typography color="textSecondary">{ data.lastUpdate }</Typography>
-                        <Typography variant='body'>Active Cases of COVID-19</Typography>
+                        <Typography variant='body2'>Active Cases of COVID-19</Typography>
                     </CardContent>
                 </Grid>
 
