@@ -3,7 +3,7 @@ import { Card, CardContent, Typography, Grid } from '@material-ui/core'
 import CountUp from 'react-countup';
 import styles from '../cards/Cards.module.css'
 import cx from 'classnames';
-const Cards = ({ data, country }) => {
+const Cards = ({ data }) => {
 
 
 
@@ -23,7 +23,7 @@ const Cards = ({ data, country }) => {
                         <Typography variant='h5'>
                             <CountUp start={0} end={data.confirmed} duration={2.5} separator="," />
                         </Typography>
-                        <Typography color="textSecondary">{new Date(data.lastUpdate).toDateString()}</Typography>
+                        <Typography color="textSecondary">{ data.lastUpdate }</Typography>
                         <Typography variant='body'>Active Cases of COVID-19</Typography>
                     </CardContent>
                 </Grid>
@@ -34,7 +34,7 @@ const Cards = ({ data, country }) => {
                         <Typography variant="h5" >
                             <CountUp start={0} end={data.recovered} duration={2.5} separator="," />
                         </Typography>
-                        <Typography color="textSecondary" > {data.lastUpdate} </Typography>
+                        <Typography color="textSecondary" > { data.lastUpdate } </Typography>
                         <Typography variant="body2" > Number of recovered cases from COVID-19</Typography>
                     </CardContent>
 
@@ -46,8 +46,8 @@ const Cards = ({ data, country }) => {
                         <Typography variant="h5" >
                             <CountUp start={0} end={data.deaths} duration={2.5} separator="," />
                         </Typography>
-                        <Typography color="textSecondary" > {data.lastUpdate} </Typography>
-                        <Typography variant="body2" > Number of death cases in COVID-19</Typography>
+                        <Typography color="textSecondary" > { data.lastUpdate } </Typography>
+                        <Typography variant="body2" > Number of deaths from COVID-19</Typography>
                     </CardContent>
 
                 </Grid>

@@ -19,12 +19,9 @@ function App() {
 
   const handleCountryChange = async (country) => {
 
-
-
     setCountryData(await fetchSelectedCountryData(country))
     setCountryName(country);
-   
-
+    
   }
 
 
@@ -34,7 +31,7 @@ function App() {
     <DataProvider>
       <div className="container">
         <img className='image' src={image} alt="COVID-19" />
-        <Cards data={countryData} country={countryName} />
+        <Cards data= {countryData} />
         <Countries handleCountryChange={handleCountryChange} />
         <Charts data={countryData} country={countryName} handleCountryChange={handleCountryChange} />
 

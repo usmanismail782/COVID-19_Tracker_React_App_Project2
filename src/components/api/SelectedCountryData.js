@@ -14,8 +14,11 @@ export const fetchSelectedCountryData = async (country) => {
     try {
         const { data: { confirmed, recovered, deaths, lastUpdate } } = await axios.get(changeableUrl);
 
-
-        return { confirmed: confirmed.value, recovered: recovered.value, deaths: deaths.value, lastUpDate: lastUpdate };
+       
+        return { confirmed: confirmed.value, 
+                 recovered: recovered.value,
+                 deaths: deaths.value, 
+                 lastUpdate: new Date(lastUpdate).toDateString() };
 
     } catch (error) {
         return error;
